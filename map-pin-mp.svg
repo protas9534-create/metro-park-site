@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 60" width="48" height="60">
+  <!-- Тело капли (перевёрнутая) -->
+  <path d="M24 0C13.51 0 5 8.51 5 19c0 14.25 19 41 19 41s19-26.75 19-41C43 8.51 34.49 0 24 0z" fill="#c4a882"/>
+  <!-- Внутренний круг — светлый -->
+  <circle cx="24" cy="19" r="13" fill="#1a1410"/>
+  <!-- Текст MP -->
+  <text x="24" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="10" font-weight="600" fill="#c4a882" letter-spacing="0.5">MP</text>
+</svg>

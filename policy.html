@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Политика конфиденциальности — Metro Park TRC</title>
+  <meta name="description" content="Политика обработки персональных данных сайта Metro Park TRC. ОДО «Витебский двор»." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #0a0a0a;
+      --bg-surface:  #111111;
+      --bg-raised:   #1a1a1a;
+      --border:      rgba(196, 168, 130, 0.15);
+      --border-subtle: rgba(255,255,255,0.06);
+      --text:        #e8e4de;
+      --text-muted:  #9a9490;
+      --text-faint:  #5a5652;
+      --accent:      #c4a882;
+      --accent-dim:  rgba(196, 168, 130, 0.12);
+      --accent-glow: rgba(196, 168, 130, 0.08);
+
+      --font:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius:      8px;
+      --radius-lg:   12px;
+
+      --container:   720px;
+      --gap:         1.75rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Layout ────────────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      max-width: calc(var(--container) + 64px);
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent); }
+    .back-link svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .back-link:hover svg { transform: translateX(-3px); }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .header-logo-mark {
+      /* Полный SVG логотип (viewBox 250×175) — удерживаем ширину, высота авто */
+      width: 90px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    /* ── Hero ──────────────────────────────────────────────── */
+    .doc-hero {
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 64px 32px 48px;
+    }
+    .doc-hero-inner {
+      max-width: calc(var(--container) + 64px);
+      margin: 0 auto;
+    }
+    .doc-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .doc-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .doc-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ── TOC ───────────────────────────────────────────────── */
+    .toc-wrap {
+      max-width: calc(var(--container) + 64px);
+      margin: 0 auto;
+      padding: 40px 32px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .toc {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+    }
+    .toc-heading {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .toc-list li::before {
+      content: counter(toc-counter, decimal-leading-zero);
+      counter-increment: toc-counter;
+      font-size: 10px;
+      color: var(--text-faint);
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+      line-height: 1.8;
+    }
+    .toc-list { counter-reset: toc-counter; }
+    .toc-list a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: color 0.2s;
+      line-height: 1.6;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    /* ── Main Content ──────────────────────────────────────── */
+    .doc-body {
+      max-width: calc(var(--container) + 64px);
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* ── Section ───────────────────────────────────────────── */
+    .section {
+      padding-top: 56px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 56px;
+    }
+    .section:first-child { margin-top: 0; border-top: none; padding-top: 48px; }
+
+    .section-number {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    /* ── Prose ─────────────────────────────────────────────── */
+    .prose p {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .prose a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(196,168,130,0.3);
+      transition: border-color 0.2s;
+    }
+    .prose a:hover { border-color: var(--accent); }
+
+    /* ── Lists ─────────────────────────────────────────────── */
+    .prose ul, .prose ol {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      line-height: 1.8;
+      padding-left: 0;
+      margin-bottom: 16px;
+      list-style: none;
+    }
+    .prose ul li, .prose ol li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+    .prose ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .prose ol {
+      counter-reset: ol-counter;
+    }
+    .prose ol li {
+      counter-increment: ol-counter;
+    }
+    .prose ol li::before {
+      content: counter(ol-counter) '.';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* ── Info Card ─────────────────────────────────────────── */
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+    .info-card-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .info-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 6px 16px;
+      align-items: baseline;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-label {
+      font-size: 12px;
+      color: var(--text-faint);
+      font-weight: 500;
+    }
+    .info-value {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* ── Data Table ────────────────────────────────────────── */
+    .data-table-wrap { overflow-x: auto; margin-bottom: 20px; }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      min-width: 480px;
+    }
+    .data-table thead tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table th {
+      text-align: left;
+      padding: 10px 16px 10px 0;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .data-table td {
+      padding: 10px 16px 10px 0;
+      color: var(--text-muted);
+      vertical-align: top;
+      border-bottom: 1px solid var(--border-subtle);
+      line-height: 1.6;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table td:first-child { color: var(--text); font-weight: 500; }
+
+    /* ── Highlight Box ─────────────────────────────────────── */
+    .highlight-box {
+      background: var(--accent-dim);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .highlight-box p {
+      color: var(--text-muted) !important;
+      font-size: 14px !important;
+      margin-bottom: 0 !important;
+    }
+    .highlight-box strong {
+      color: var(--accent) !important;
+    }
+
+    /* ── Rights Grid ───────────────────────────────────────── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .rights-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      transition: border-color 0.2s;
+    }
+    .rights-item:hover { border-color: var(--border); }
+    .rights-icon {
+      font-size: 18px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .rights-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .rights-desc {
+      font-size: 12px;
+      color: var(--text-faint);
+      line-height: 1.5;
+    }
+
+    /* ── Cookie Notice ─────────────────────────────────────── */
+    .cookie-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: var(--bg-raised);
+      border-top: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cookie-bar.visible { transform: translateY(0); }
+    .cookie-bar-text {
+      flex: 1;
+      min-width: 240px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .cookie-bar-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .cookie-bar-actions {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 500;
+      font-family: var(--font);
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0a;
+    }
+    .btn-primary:hover { background: #d4b892; }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Contact Card ──────────────────────────────────────── */
+    .contact-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .contact-group-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .contact-group-value {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .contact-group-value a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .contact-group-value a:hover { text-decoration: underline; }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .doc-footer {
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 64px;
+      padding: 32px;
+      text-align: center;
+    }
+    .doc-footer p {
+      font-size: 12px;
+      color: var(--text-faint);
+      line-height: 1.7;
+    }
+    .doc-footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .doc-footer a:hover { color: var(--accent); }
+
+    /* ── Responsive ────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .header-inner { padding: 0 16px; }
+      .doc-hero { padding: 40px 16px 32px; }
+      .toc-wrap { padding: 24px 16px; }
+      .doc-body { padding: 0 16px 64px; }
+      .doc-footer { padding: 24px 16px; }
+
+      .info-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+      .info-label { font-size: 11px; }
+
+      .rights-grid { grid-template-columns: 1fr; }
+
+      .contact-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 20px;
+      }
+
+      .cookie-bar { padding: 14px 16px; }
+      .cookie-bar-text { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="back-link" aria-label="Вернуться на главную">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 12L6 8l4-4"/>
+        </svg>
+        На главную
+      </a>
+      <a href="index.html" class="header-logo" aria-label="Metro Park">
+        <!-- SVG логотип — тот же, что в хедере главной страницы -->
+        <svg class="header-logo-mark" viewBox="0 0 250 175" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4.5,173.2V83H21v5.4c4.1-4.9,10-7,16.3-7c8.6,0,14.8,3.3,19.3,8.4c6.7,7.6,7.2,16.5,7.2,24.5c0,7.9-0.9,19.1-9.4,26.7c-3.3,2.9-8.9,6.1-17.7,6.1c-8,0-12-2.4-13.7-3.4v29.5H4.5z M23,130.6c3.7,2.7,7.6,3.3,10.1,3.3c4.7,0,7.2-2,8.4-3.4c2.5-3,2.8-7.5,2.8-11.3v-10.5c0-3.2-0.1-7.6-2.5-10.6c-2.4-3-5.8-3.4-7.7-3.4c-4.3,0-8.5,2.4-11,5.1V130.6z" fill="#c4a882"/>
+          <path d="M118.6,139.4h-0.5c-6.1,7.2-15.8,7.7-19.3,7.7c-4.9,0-11.2-0.5-16.5-4.8c-3.4-2.9-6.5-7.2-6.5-14.2c0-5.2,1.8-12.2,10.4-16.1c7.1-3.2,19.3-3.5,24.1-3.5h7.2v-6.2c0-1.8-0.1-4.7-2-6.7c-2.3-2.5-6.5-2.7-8.6-2.7c-2.3,0-4.9,0.1-7.1,1.4c-1.1,0.6-3.2,1.9-3.2,5.3c0,1,0.1,1.9,0.3,2.4l-16.7-0.4c-2.8-6.3-1-12.5,4.1-15.8c1.6-1.1,7.3-4.3,22-4.3c6.7,0,17,0.6,23.6,6.5c6.5,5.7,6.2,11.9,6.2,18.2v39.4h-17.5V139.4z M117.6,118h-6c-6.3,0-16.2,0.5-16.2,9.1c0,4.2,2.5,8.2,9.6,8.2c4.9,0,8.7-1.8,12.5-6V118z" fill="#c4a882"/>
+          <path d="M169.8,4.5v7.7l1.4-1.9C173,7.8,177.8,3,186.4,3c2.3,0,7.5,0.1,11.2,2.9c2.3,1.8,4.9,5.2,4.8,10.4l-13.9,6.5c-1.1-2.9-3.8-4.7-7.1-4.7c-2.7,0-5.1,1.1-6.3,2.8c-2.3,2.8-2.4,7.6-2.4,9.5c0.1,38.5,0.3,77.1,0.4,115.6c-6.3,0-12.7,0-19,0c0-47.2,0.1-94.3,0.1-141.5H169.8z" fill="#c4a882"/>
+          <polygon points="205.5,104.1 226.6,83 248.4,83 223.9,106.3 249,145.6 227.1,145.6 210.7,118.8 205.5,123.5 205.5,145.6 187,145.6 187,43 206,43" fill="#c4a882"/>
+          <path d="M4.3,28.4h6.2l10.8,21.2l10.2-21.2h6.2v39.2h-5.5V37L21.9,57.8h-2.3L9.4,37v30.6h-5V28.4z" fill="#c4a882"/>
+          <path d="M51.3,55.9c0,3.3,1,5.2,1.9,6.1c1.3,1.4,3.6,2.2,6.2,2.2c1.6,0,2.7-0.2,4.3-0.7c1.2-0.4,2.2-0.8,3.1-1.3l1.6,3.2c-0.8,0.4-2.1,1.1-3.3,1.6c-2.2,0.8-4.4,1.1-6.4,1.1c-4.5,0-7.7-1.9-9.6-3.9c-2.8-3.1-3.3-7.6-3.3-10.7c0-2.7,0.3-6.9,3.1-10.1c1.7-1.9,4.5-3.6,8.3-3.6c3.5,0,6.2,1.3,8,3.3C68,46,68.1,49.6,68.1,54v1.2H51.3V55.9z M62.9,51.6v-1.1c0-1.9,0-4-1.8-5.7c-1.1-1-2.4-1.3-3.9-1.3c-2.1,0-3.4,1-4.1,1.8c-0.8,0.9-1.8,2.6-1.8,5.8v0.6H62.9z" fill="#c4a882"/>
+          <path d="M77.1,40.4v-9.6H82v9.6h6.1v3.7H82v23.5h-4.9V44.1h-4.8v-3.7H77.1z" fill="#c4a882"/>
+          <path d="M97.8,40.4v4.1c1.1-2,2.4-3,3.6-3.6c1.3-0.7,2.5-1.1,4-1.1c1.8,0,3,0.5,3.9,1.1c0.6,0.4,1.3,1.3,1.6,2.7l-3.6,2.6c-0.2-0.6-0.6-1-1-1.3c-0.6-0.4-1.3-0.7-2.4-0.7c-2,0-3.3,0.9-4,1.7c-1.6,1.7-1.8,4.1-1.8,5.9v15.6h-4.9V40.4H97.8z" fill="#c4a882"/>
+          <path d="M133.8,43.4c2.8,3,3.4,7.3,3.4,10.7s-0.6,7.6-3.4,10.7c-1.8,1.9-4.8,3.5-8.8,3.5c-4,0-7-1.6-8.8-3.5c-2.8-3-3.4-7.3-3.4-10.7s0.6-7.6,3.4-10.7c1.8-1.9,4.8-3.5,8.8-3.5C129.1,39.8,132,41.5,133.8,43.4z M131.7,52.8c0-2.6,0-5.4-2-7.5c-0.8-0.8-2.2-1.9-4.7-1.9s-3.9,1-4.7,1.9c-2,2.1-2,4.9-2,7.5v2.5c0,2.6,0,5.4,2,7.5c0.8,0.8,2.2,1.9,4.7,1.9s3.9-1,4.7-1.9c2-2.1,2-4.9,2-7.5V52.8z" fill="#c4a882"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ── Hero ───────────────────────────────────────────────── -->
+  <div class="doc-hero">
+    <div class="doc-hero-inner">
+      <span class="doc-label">Правовой документ</span>
+      <h1 class="doc-title">Политика обработки<br>персональных данных</h1>
+      <p class="doc-subtitle">
+        ОДО «Витебский двор» &nbsp;·&nbsp; Редакция от 30.03.2026
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Table of Contents ──────────────────────────────────── -->
+  <nav class="toc-wrap" aria-label="Содержание">
+    <div class="toc">
+      <div class="toc-heading">Содержание</div>
+      <ol class="toc-list">
+        <li><a href="#s1">Общие положения</a></li>
+        <li><a href="#s2">Оператор и сайт</a></li>
+        <li><a href="#s3">Персональные данные, которые мы обрабатываем</a></li>
+        <li><a href="#s4">Цели и правовые основания обработки</a></li>
+        <li><a href="#s5">Файлы cookie и аналитика</a></li>
+        <li><a href="#s6">Сроки хранения данных</a></li>
+        <li><a href="#s7">Передача данных третьим лицам</a></li>
+        <li><a href="#s8">Права субъекта персональных данных</a></li>
+        <li><a href="#s9">Меры по защите данных</a></li>
+        <li><a href="#s10">Контакты оператора</a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ── Main Document ──────────────────────────────────────── -->
+  <main class="doc-body">
+
+    <!-- SECTION 1 -->
+    <section class="section" id="s1">
+      <div class="section-number">Раздел 01</div>
+      <h2 class="section-title">Общие положения</h2>
+      <div class="prose">
+        <p>
+          Настоящая Политика обработки персональных данных (далее — <strong>«Политика»</strong>)
+          разработана во исполнение требований Закона Республики Беларусь от 07 мая 2021 г.
+          № 99-З «О защите персональных данных» (далее — <strong>«Закон № 99-З»</strong>)
+          и определяет порядок, цели и условия обработки персональных данных, собираемых
+          посредством сайта <a href="https://metro-park.by" target="_blank" rel="noopener">metro-park.by</a>.
+        </p>
+        <p>
+          Используя сайт и заполняя формы обратной связи, вы подтверждаете, что ознакомились
+          с настоящей Политикой и выражаете согласие с условиями обработки ваших персональных данных
+          в соответствии с описанными в ней целями и правовыми основаниями.
+        </p>
+        <p>
+          Если вы не согласны с условиями настоящей Политики, пожалуйста, прекратите использование
+          сайта и не заполняйте формы, предполагающие предоставление персональных данных.
+        </p>
+        <p>
+          Настоящая Политика может периодически обновляться. Актуальная версия всегда доступна
+          по адресу: <a href="https://metro-park.by/policy.html">metro-park.by/policy.html</a>.
+          При существенных изменениях мы уведомим вас путём размещения соответствующего
+          сообщения на сайте.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section" id="s2">
+      <div class="section-number">Раздел 02</div>
+      <h2 class="section-title">Оператор и сайт</h2>
+      <div class="prose">
+        <p>
+          Оператором персональных данных в соответствии со ст. 4 Закона № 99-З является
+          юридическое лицо, самостоятельно определяющее цели и порядок обработки
+          персональных данных:
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-title">Реквизиты оператора</div>
+        <div class="info-row">
+          <span class="info-label">Наименование</span>
+          <span class="info-value">ОДО «Витебский двор»</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">УНП</span>
+          <span class="info-value">390353002</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Юридический адрес</span>
+          <span class="info-value">Республика Беларусь, 220062, г. Минск, пр-т Победителей, д. 119, пом. 500</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Email</span>
+          <span class="info-value"><a href="mailto:lawyer@metro-park.by">lawyer@metro-park.by</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Телефон</span>
+          <span class="info-value"><a href="tel:+375333749416">+375 33 374-94-16</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Сайт</span>
+          <span class="info-value"><a href="https://metro-park.by" target="_blank" rel="noopener">https://metro-park.by</a></span>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          Сайт <strong>metro-park.by</strong> — официальный веб-ресурс торгово-развлекательного
+          центра Metro Park, расположенного по адресу: г. Витебск, ул. Космонавтов, 10А.
+          Сайт предназначен для предоставления информации об объекте недвижимости,
+          условиях аренды и взаимодействия с потенциальными арендаторами.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section" id="s3">
+      <div class="section-number">Раздел 03</div>
+      <h2 class="section-title">Персональные данные, которые мы обрабатываем</h2>
+      <div class="prose">
+        <p>
+          При заполнении формы заявки на аренду мы собираем следующие категории
+          персональных данных:
+        </p>
+      </div>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Категория данных</th>
+              <th>Конкретные данные</th>
+              <th>Обязательность</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Юридические</td>
+              <td>Наименование ЮЛ / ИП</td>
+              <td>Обязательно</td>
+            </tr>
+            <tr>
+              <td>Юридические</td>
+              <td>УНП (учётный номер налогоплательщика, 9 цифр)</td>
+              <td>Обязательно</td>
+            </tr>
+            <tr>
+              <td>Профессиональные</td>
+              <td>Должность</td>
+              <td>Обязательно</td>
+            </tr>
+            <tr>
+              <td>Идентификационные</td>
+              <td>Фамилия, имя, отчество (ФИО)</td>
+              <td>Обязательно</td>
+            </tr>
+            <tr>
+              <td>Контактные</td>
+              <td>Номер телефона</td>
+              <td>Обязательно</td>
+            </tr>
+            <tr>
+              <td>Контактные</td>
+              <td>Адрес электронной почты (email)</td>
+              <td>Необязательно</td>
+            </tr>
+            <tr>
+              <td>Профессиональные</td>
+              <td>Наименование планируемого объекта (магазина, точки)</td>
+              <td>Необязательно</td>
+            </tr>
+            <tr>
+              <td>Профессиональные</td>
+              <td>Направление бизнеса / сфера деятельности</td>
+              <td>Необязательно</td>
+            </tr>
+            <tr>
+              <td>Коммерческие</td>
+              <td>Предпочтительный этаж, площадь (от/до), предельная ставка</td>
+              <td>Необязательно</td>
+            </tr>
+            <tr>
+              <td>Пользовательские</td>
+              <td>Произвольное сообщение / комментарий</td>
+              <td>Необязательно</td>
+            </tr>
+            <tr>
+              <td>Технические</td>
+              <td>Дата и время отправки заявки</td>
+              <td>Автоматически</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        <p>
+          Мы не запрашиваем и не обрабатываем <strong>специальные категории персональных данных</strong>
+          (расовое и этническое происхождение, политические взгляды, религиозные убеждения,
+          состояние здоровья, биометрические данные и иные категории, указанные в ст. 8 Закона № 99-З).
+        </p>
+        <p>
+          Мы не обрабатываем данные лиц, не достигших 18 лет. Заполняя форму, вы подтверждаете
+          своё совершеннолетие.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section" id="s4">
+      <div class="section-number">Раздел 04</div>
+      <h2 class="section-title">Цели и правовые основания обработки</h2>
+
+      <div class="info-card">
+        <div class="info-card-title">Основная цель обработки</div>
+        <div class="info-row">
+          <span class="info-label">Цель</span>
+          <span class="info-value">Рассмотрение заявки на аренду коммерческого помещения в ТРЦ Metro Park и установление контакта с потенциальным арендатором</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Правовое основание</span>
+          <span class="info-value">Ст. 6 Закона № 99-З — согласие субъекта персональных данных</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Дополнительное основание</span>
+          <span class="info-value">Ст. 6 Закона № 99-З — осуществление прав и обязанностей, предусмотренных законодательными актами (при заключении договора аренды)</span>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          Персональные данные обрабатываются исключительно в следующих целях:
+        </p>
+        <ul>
+          <li>Получение, регистрация и рассмотрение заявки на аренду торговой площади в ТРЦ Metro Park.</li>
+          <li>Связь с заявителем: уточнение параметров аренды, предоставление коммерческих условий.</li>
+          <li>Подготовка и заключение договора аренды (в случае достижения договорённости).</li>
+          <li>Исполнение обязательств по заключённому договору аренды.</li>
+          <li>Соблюдение требований законодательства Республики Беларусь.</li>
+        </ul>
+        <p>
+          Согласие на обработку персональных данных предоставляется субъектом добровольно путём
+          проставления отметки «Я согласен(на) на обработку персональных данных» в форме заявки
+          на сайте. Без предоставления такого согласия отправка формы невозможна.
+        </p>
+        <p>
+          Согласие может быть отозвано в любое время путём направления письменного заявления
+          на адрес электронной почты <a href="mailto:lawyer@metro-park.by">lawyer@metro-park.by</a>
+          или почтового отправления по юридическому адресу оператора.
+        </p>
+      </div>
+
+      <div class="highlight-box">
+        <p>
+          <strong>Важно:</strong> Отзыв согласия не влечёт прекращения обработки персональных данных,
+          если их обработка осуществляется на иных правовых основаниях, предусмотренных Законом № 99-З,
+          либо необходима для исполнения заключённого договора или соблюдения требований законодательства.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="section" id="s5">
+      <div class="section-number">Раздел 05</div>
+      <h2 class="section-title">Файлы cookie и аналитика</h2>
+      <div class="prose">
+        <p>
+          Сайт metro-park.by использует <strong>файлы cookie</strong> — небольшие текстовые файлы,
+          сохраняемые в браузере пользователя. Cookie не содержат персональных данных в явном виде
+          и не позволяют непосредственно идентифицировать конкретного пользователя.
+        </p>
+
+        <p>Мы используем следующие типы cookie:</p>
+      </div>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Тип</th>
+              <th>Назначение</th>
+              <th>Срок жизни</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Необходимые</td>
+              <td>Обеспечивают базовую работу сайта (навигация, безопасность форм)</td>
+              <td>Сессия</td>
+            </tr>
+            <tr>
+              <td>Функциональные</td>
+              <td>Запоминают предпочтения пользователя (язык, принятие cookie-уведомления)</td>
+              <td>1 год</td>
+            </tr>
+            <tr>
+              <td>Аналитические</td>
+              <td>Сбор обезличенной статистики посещаемости (Яндекс.Метрика или аналог)</td>
+              <td>До 2 лет</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        <p>
+          При первом посещении сайта вам будет предложено принять или отклонить использование
+          аналитических и функциональных cookie. Необходимые cookie активны всегда, поскольку
+          без них сайт не может корректно функционировать.
+        </p>
+        <p>
+          Вы можете самостоятельно управлять cookie через настройки вашего браузера:
+          отключить сохранение cookie, удалить ранее сохранённые файлы или настроить
+          индивидуальные правила. Отключение cookie может повлиять на работу отдельных
+          функций сайта.
+        </p>
+        <p>
+          Если на сайте используются инструменты веб-аналитики третьих сторон, обработка
+          данных осуществляется в соответствии с политиками конфиденциальности соответствующих
+          провайдеров.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="section" id="s6">
+      <div class="section-number">Раздел 06</div>
+      <h2 class="section-title">Сроки хранения данных</h2>
+      <div class="prose">
+        <p>
+          Персональные данные хранятся не дольше, чем это необходимо для достижения
+          целей их обработки, и в соответствии с требованиями законодательства
+          Республики Беларусь.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-title">Сроки хранения по категориям</div>
+        <div class="info-row">
+          <span class="info-label">Данные заявки на аренду</span>
+          <span class="info-value"><strong>3 года</strong> с даты получения, либо до отзыва согласия — в зависимости от того, что наступит ранее</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Данные по заключённому договору</span>
+          <span class="info-value"><strong>5 лет</strong> после окончания срока действия договора (требования налогового и бухгалтерского законодательства РБ)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Данные отозванного согласия</span>
+          <span class="info-value"><strong>3 года</strong> с момента отзыва (для подтверждения факта обработки и её прекращения)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Данные cookie (аналитика)</span>
+          <span class="info-value">До <strong>2 лет</strong> либо до отзыва согласия через настройки браузера</span>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          По истечении сроков хранения персональные данные уничтожаются или обезличиваются
+          в порядке, предусмотренном внутренними процедурами оператора и требованиями
+          ст. 17 Закона № 99-З.
+        </p>
+        <p>
+          Если в период хранения данных возникает судебный спор или административное
+          расследование, срок хранения продлевается до завершения соответствующего производства
+          и вступления в силу окончательного решения.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="section" id="s7">
+      <div class="section-number">Раздел 07</div>
+      <h2 class="section-title">Передача данных третьим лицам</h2>
+      <div class="prose">
+        <p>
+          ОДО «Витебский двор» <strong>не передаёт</strong> персональные данные субъектов
+          третьим лицам в коммерческих целях, не продаёт и не сдаёт в аренду
+          базы персональных данных.
+        </p>
+        <p>
+          Ограниченная передача данных допускается исключительно в следующих случаях:
+        </p>
+        <ul>
+          <li>
+            <strong>Уполномоченные государственные органы.</strong>
+            Предоставление данных по запросу судов, органов прокуратуры, правоохранительных органов
+            и иных органов государственной власти в случаях и порядке, предусмотренных
+            законодательством Республики Беларусь.
+          </li>
+          <li>
+            <strong>Технические провайдеры.</strong>
+            Организации, оказывающие услуги хранения данных, технической поддержки и
+            аналитики (в том числе Google LLC в части хранения данных формы в сервисах
+            Google Workspace), при наличии соответствующих договоров о защите данных
+            и обязательств по соблюдению конфиденциальности.
+          </li>
+          <li>
+            <strong>Согласие субъекта.</strong>
+            В случаях, когда субъект персональных данных явно выразил согласие на
+            передачу данных конкретному третьему лицу.
+          </li>
+        </ul>
+        <p>
+          При передаче данных третьим лицам оператор обеспечивает соблюдение ими
+          требований Закона № 99-З в части защиты персональных данных.
+        </p>
+      </div>
+
+      <div class="highlight-box">
+        <p>
+          <strong>Трансграничная передача:</strong> В рамках использования сервисов Google
+          (Google Sheets, Gmail) персональные данные могут обрабатываться на серверах,
+          расположенных за пределами Республики Беларусь, в том числе в Европейском Союзе
+          и США. Такая передача осуществляется при наличии надлежащего уровня защиты
+          в соответствии со ст. 10 Закона № 99-З.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="section" id="s8">
+      <div class="section-number">Раздел 08</div>
+      <h2 class="section-title">Права субъекта персональных данных</h2>
+      <div class="prose">
+        <p>
+          В соответствии с Законом № 99-З вы как субъект персональных данных обладаете
+          следующими правами:
+        </p>
+      </div>
+
+      <div class="rights-grid">
+        <div class="rights-item">
+          <span class="rights-icon">📋</span>
+          <div class="rights-name">Право на получение информации</div>
+          <div class="rights-desc">Узнать, какие данные о вас обрабатываются, на каких основаниях и в каких целях (ст. 14 Закона № 99-З)</div>
+        </div>
+        <div class="rights-item">
+          <span class="rights-icon">✏️</span>
+          <div class="rights-name">Право на исправление</div>
+          <div class="rights-desc">Требовать исправления неточных или устаревших персональных данных (ст. 15 Закона № 99-З)</div>
+        </div>
+        <div class="rights-item">
+          <span class="rights-icon">🗑️</span>
+          <div class="rights-name">Право на удаление</div>
+          <div class="rights-desc">Требовать удаления ваших персональных данных в случаях, предусмотренных законом (ст. 17 Закона № 99-З)</div>
+        </div>
+        <div class="rights-item">
+          <span class="rights-icon">⛔</span>
+          <div class="rights-name">Право на прекращение обработки</div>
+          <div class="rights-desc">Требовать прекращения обработки данных, в том числе для целей прямого маркетинга (ст. 16 Закона № 99-З)</div>
+        </div>
+        <div class="rights-item">
+          <span class="rights-icon">↩️</span>
+          <div class="rights-name">Право на отзыв согласия</div>
+          <div class="rights-desc">Отозвать согласие на обработку в любое время. Отзыв не имеет обратной силы (ст. 6 Закона № 99-З)</div>
+        </div>
+        <div class="rights-item">
+          <span class="rights-icon">⚖️</span>
+          <div class="rights-name">Право на обжалование</div>
+          <div class="rights-desc">Обратиться с жалобой в Национальный центр защиты персональных данных Республики Беларусь</div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          Для реализации ваших прав направьте письменный запрос на адрес электронной почты
+          <a href="mailto:lawyer@metro-park.by">lawyer@metro-park.by</a> или почтовое
+          отправление по юридическому адресу оператора. В запросе укажите:
+        </p>
+        <ol>
+          <li>Фамилию, имя, отчество и контактные данные.</li>
+          <li>Содержание требования (какое право вы хотите реализовать).</li>
+          <li>Дату заполнения формы заявки (если применимо).</li>
+        </ol>
+        <p>
+          Оператор рассматривает обращения в течение <strong>15 рабочих дней</strong>
+          с момента получения и направляет мотивированный ответ.
+        </p>
+        <p>
+          Если вы считаете, что ваши права нарушены, вы вправе обратиться с жалобой в
+          <strong>Национальный центр защиты персональных данных Республики Беларусь</strong>
+          (<a href="https://ncpd.gov.by" target="_blank" rel="noopener">ncpd.gov.by</a>).
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="section" id="s9">
+      <div class="section-number">Раздел 09</div>
+      <h2 class="section-title">Меры по защите данных</h2>
+      <div class="prose">
+        <p>
+          ОДО «Витебский двор» принимает необходимые правовые, организационные и технические меры
+          для обеспечения защиты персональных данных от несанкционированного доступа,
+          уничтожения, изменения, блокирования, копирования, распространения и иных
+          неправомерных действий в соответствии со ст. 17–19 Закона № 99-З.
+        </p>
+        <p>К применяемым мерам защиты относятся:</p>
+        <ul>
+          <li>Передача данных с формы сайта по защищённому протоколу <strong>HTTPS</strong> (TLS-шифрование).</li>
+          <li>Хранение данных в защищённых сервисах Google Workspace с разграничением прав доступа.</li>
+          <li>Ограничение круга лиц, имеющих доступ к персональным данным, в рамках организации оператора.</li>
+          <li>Подписание сотрудниками, имеющими доступ к данным, обязательств о неразглашении.</li>
+          <li>Регулярная проверка актуальности применяемых мер защиты.</li>
+          <li>Уведомление Национального центра защиты персональных данных в случае инцидентов, предусмотренных законодательством.</li>
+        </ul>
+        <p>
+          Несмотря на принимаемые меры, ни один способ передачи данных через Интернет
+          не является абсолютно защищённым. В случае выявления инцидентов безопасности
+          оператор примет все необходимые меры по их устранению и уведомлению затронутых
+          субъектов в сроки, установленные законодательством.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="section" id="s10">
+      <div class="section-number">Раздел 10</div>
+      <h2 class="section-title">Контакты оператора и обращение по вопросам ПДн</h2>
+      <div class="prose">
+        <p>
+          По любым вопросам, связанным с обработкой персональных данных, реализацией ваших прав,
+          а также для подачи обращений и жалоб обращайтесь к оператору:
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <div>
+          <div class="contact-group-title">Почтовый адрес</div>
+          <div class="contact-group-value">
+            ОДО «Витебский двор»<br>
+            пр-т Победителей, д. 119, пом. 500<br>
+            220062, г. Минск<br>
+            Республика Беларусь
+          </div>
+        </div>
+        <div>
+          <div class="contact-group-title">Электронная связь</div>
+          <div class="contact-group-value">
+            Email: <a href="mailto:lawyer@metro-park.by">lawyer@metro-park.by</a><br>
+            Телефон: <a href="tel:+375333749416">+375 33 374-94-16</a><br>
+            Сайт: <a href="https://metro-park.by" target="_blank" rel="noopener">metro-park.by</a>
+          </div>
+        </div>
+        <div>
+          <div class="contact-group-title">Регулятор</div>
+          <div class="contact-group-value">
+            Национальный центр защиты персональных данных РБ<br>
+            <a href="https://ncpd.gov.by" target="_blank" rel="noopener">ncpd.gov.by</a>
+          </div>
+        </div>
+        <div>
+          <div class="contact-group-title">Время ответа</div>
+          <div class="contact-group-value">
+            На обращения по ПДн — до 15 рабочих дней с момента получения
+          </div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          Настоящая Политика вступает в силу с момента её публикации на сайте и действует
+          бессрочно до замены новой редакцией. Все спорные вопросы, связанные с применением
+          настоящей Политики, регулируются законодательством Республики Беларусь.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────── -->
+  <footer class="doc-footer">
+    <p>
+      © 2026 ОДО «Витебский двор» · ТРЦ Metro Park ·
+      <a href="index.html">Вернуться на главную</a>
+    </p>
+    <p style="margin-top:8px;">
+      Политика обработки персональных данных · Редакция от 30.03.2026<br>
+      Разработана в соответствии с Законом Республики Беларусь № 99-З от 07.05.2021
+      «О защите персональных данных»
+    </p>
+  </footer>
+
+  <!-- ── Cookie Consent Bar ───────────────────────────────────── -->
+  <div class="cookie-bar" id="cookieBar" role="region" aria-label="Уведомление об использовании cookie">
+    <p class="cookie-bar-text">
+      Мы используем cookie для корректной работы сайта и анализа посещаемости.
+      Подробнее — в разделе
+      <a href="#s5" onclick="document.getElementById('cookieBar').classList.remove('visible');">«Файлы cookie и аналитика»</a>.
+    </p>
+    <div class="cookie-bar-actions">
+      <button class="btn btn-secondary" onclick="rejectCookies()" type="button">Только необходимые</button>
+      <button class="btn btn-primary" onclick="acceptCookies()" type="button">Принять все</button>
+    </div>
+  </div>
+
+  <script>
+    // ── Cookie consent logic ───────────────────────────────────
+    (function() {
+      var consent = document.cookie.indexOf('mp_cookie_consent=') !== -1 ? document.cookie.match('mp_cookie_consent=([^;]*)')[1] : null;
+      if (!consent) {
+        // Показываем панель с небольшой задержкой
+        setTimeout(function() {
+          document.getElementById('cookieBar').classList.add('visible');
+        }, 800);
+      }
+    })();
+
+    function acceptCookies() {
+      document.cookie = 'mp_cookie_consent=all; max-age=31536000; path=/';
+      hideCookieBar();
+    }
+
+    function rejectCookies() {
+      document.cookie = 'mp_cookie_consent=necessary; max-age=31536000; path=/';
+      hideCookieBar();
+    }
+
+    function hideCookieBar() {
+      var bar = document.getElementById('cookieBar');
+      bar.classList.remove('visible');
+      // Удаляем из DOM через время анимации
+      setTimeout(function() { bar.style.display = 'none'; }, 400);
+    }
+
+    // ── Smooth active section highlighting in TOC ──────────────
+    (function() {
+      var sections = document.querySelectorAll('.section[id]');
+      var tocLinks = document.querySelectorAll('.toc-list a');
+
+      if (!sections.length || !tocLinks.length) return;
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.getAttribute('id');
+            tocLinks.forEach(function(link) {
+              var isActive = link.getAttribute('href') === '#' + id;
+              link.style.color = isActive ? 'var(--accent)' : '';
+            });
+          }
+        });
+      }, {
+        rootMargin: '-20% 0px -70% 0px'
+      });
+
+      sections.forEach(function(s) { observer.observe(s); });
+    })();
+  </script>
+<script data-pplx-inline-edit>
+(function(){
+  if(window===window.top)return;
+  function inlineAll(orig,clone){
+    if(orig.nodeType!==1)return;
+    try{
+      var cs=getComputedStyle(orig);
+      var t='';
+      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
+      clone.style.cssText=t;
+    }catch(e){}
+    var oc=orig.children,cc=clone.children;
+    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
+  }
+  function stripExternal(clone){
+    var imgs=clone.querySelectorAll('img');
+    for(var i=0;i<imgs.length;i++){
+      var s=imgs[i].getAttribute('src');
+      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
+    }
+    var all=clone.querySelectorAll('*');
+    for(var i=0;i<all.length;i++){
+      var st=all[i].style.cssText;
+      if(st&&st.indexOf('url(')>=0){
+        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
+      }
+    }
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
+    var scrollX=window.scrollX||window.pageXOffset||0;
+    var scrollY=window.scrollY||window.pageYOffset||0;
+    var w=window.innerWidth,h=window.innerHeight;
+    try{
+      var clone=document.documentElement.cloneNode(true);
+      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
+      for(var i=0;i<rm.length;i++){rm[i].remove();}
+      inlineAll(document.documentElement,clone);
+      stripExternal(clone);
+      var html=new XMLSerializer().serializeToString(clone);
+      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
+        +'<foreignObject width="100%" height="100%">'
+        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
+        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
+        +html+'</div></div></foreignObject></svg>';
+      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+      var img=new Image();
+      img.onload=function(){
+        var c=document.createElement('canvas');c.width=w;c.height=h;
+        c.getContext('2d').drawImage(img,0,0);
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.onerror=function(){
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.src=svgUrl;
+    }catch(err){
+      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+    }
+  });
+})();
+</script></body>
+</html>

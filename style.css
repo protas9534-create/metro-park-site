@@ -191,7 +191,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 32px; height: 32px; margin-left: auto;  margin-right: 20px;
   justify-content: center;
 }
-.burger span { display: block; height: 3px; background: #ffffff; border-radius: 2px;}
+.burger span { display: block; height: 3px; background: #ffffff; border-radius: 2px; padding-right: 10px;}
 .burger.open span:nth-child(1) { opacity: 0; }
 .burger.open span:nth-child(2) { transform: translateY(5px) rotate(45deg); }
 .burger.open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }

@@ -188,7 +188,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .burger {
   display: none; flex-direction: column; gap: 6px;
-  width: 32px; height: 32px; margin-left: auto;  margin: 1px;
+  width: 32px; height: 32px; margin-left: auto;  margin-right: 20px;
   justify-content: center;
 }
 .burger span { display: block; height: 3px; background: #ffffff; border-radius: 2px;}

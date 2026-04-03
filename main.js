@@ -1,5 +1,5 @@
 'use strict';
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7iHERdKpiOLh0dG60OsCJvY0madZip1L6zusqAYevMYSczzDYv7ClDBUlPx31Kf6H/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx9pwLUWUXwyzh2r7iydJEoNkJlChwHVZ_8WktavxDkUauor6T9fv2WKft1N060lTm0/exec';
 
 /* ======= PRELOADER ======= */
 (function() {
@@ -111,74 +111,74 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7iHERdKpiOLh0
       name: '1 этаж — Торговый',
       totalArea: '678 м²',
       spaces: [
-        { name: 'Помещение 11', sq: '56.94 м²' },
-        { name: 'Помещение 12', sq: '36.29 м²' },
-        { name: 'Помещение 13', sq: '36.49 м²' },
-        { name: 'Помещение 14', sq: '54.53 м²' },
-        { name: 'Помещение 15', sq: '21.79 м²' },
-        { name: 'Помещение 16', sq: '16.48 м²' },
-        { name: 'Помещение 17', sq: '44.90 м²' },
-        { name: 'Помещение 18', sq: '47.97 м²' },
-        { name: 'Помещение 19', sq: '364.14 м²' },
+        { name: 'Помещение 1.1', sq: '56.94 м²' },
+        { name: 'Помещение 1.2', sq: '36.29 м²' },
+        { name: 'Помещение 1.3', sq: '36.49 м²' },
+        { name: 'Помещение 1.4', sq: '54.53 м²' },
+        { name: 'Помещение 1.5', sq: '21.79 м²' },
+        { name: 'Помещение 1.6', sq: '16.48 м²' },
+        { name: 'Помещение 1.7', sq: '44.90 м²' },
+        { name: 'Помещение 1.8', sq: '47.97 м²' },
+        { name: 'Помещение 1.9', sq: '364.14 м²' },
       ]
     },
     2: {
       name: '2 этаж — Торговый',
       totalArea: '740 м²',
       spaces: [
-        { name: 'Помещение 21', sq: '60.05 м²' },
-        { name: 'Помещение 22', sq: '210.01 м²' },
-        { name: 'Помещение 23 (2-й свет)', sq: '155.16 м²' },
-        { name: 'Помещение 24', sq: '62.05 м²' },
-        { name: 'Помещение 25', sq: '193.66 м²' },
-        { name: 'Помещение 26', sq: '60.05 м²' },
+        { name: 'Помещение 2.1', sq: '60.05 м²' },
+        { name: 'Помещение 2.2', sq: '210.01 м²' },
+        { name: 'Помещение 2.3', sq: '155.16 м²' },
+        { name: 'Помещение 2.4', sq: '62.05 м²' },
+        { name: 'Помещение 2.5', sq: '193.66 м²' },
+        { name: 'Помещение 2.6', sq: '60.05 м²' },
       ]
     },
     3: {
-      name: '3 этаж — Одежда / обувь',
+      name: '3 этаж — Торговый',
       totalArea: '842 м²',
       spaces: [
-        { name: 'Помещение 31', sq: '302.06 м²' },
-        { name: 'Помещение 32', sq: '51.16 м²' },
-        { name: 'Помещение 33', sq: '51.19 м²' },
-        { name: 'Помещение 34', sq: '51.98 м²' },
-        { name: 'Помещение 35', sq: '62.05 м²' },
-        { name: 'Помещение 36', sq: '273.13 м²' },
-        { name: 'Остров 37', sq: '32.73 м²' },
-        { name: 'Остров 38', sq: '18.18 м²' },
+        { name: 'Помещение 3.1', sq: '302.06 м²' },
+        { name: 'Помещение 3.2', sq: '51.16 м²' },
+        { name: 'Помещение 3.3', sq: '51.19 м²' },
+        { name: 'Помещение 3.4', sq: '51.98 м²' },
+        { name: 'Помещение 3.5', sq: '62.05 м²' },
+        { name: 'Помещение 3.6', sq: '273.13 м²' },
+        { name: 'Остров 3.7', sq: '32.73 м²' },
+        { name: 'Остров 3.8', sq: '18.18 м²' },
       ]
     },
     4: {
-      name: '4 этаж — Дети / спорт',
+      name: '4 этаж — Торговый',
       totalArea: '878 м²',
       spaces: [
-        { name: 'Помещение 41', sq: '281.62 м²' },
-        { name: 'Помещение 42', sq: '98.53 м²' },
-        { name: 'Помещение 43', sq: '51.19 м²' },
-        { name: 'Помещение 44', sq: '51.99 м²' },
-        { name: 'Помещение 45', sq: '61.89 м²' },
-        { name: 'Помещение 46', sq: '271.61 м²' },
-        { name: 'Остров 47', sq: '32.73 м²' },
-        { name: 'Остров 48', sq: '28.72 м²' },
+        { name: 'Помещение 4.1', sq: '281.62 м²' },
+        { name: 'Помещение 4.2', sq: '98.53 м²' },
+        { name: 'Помещение 4.3', sq: '51.19 м²' },
+        { name: 'Помещение 4.4', sq: '51.99 м²' },
+        { name: 'Помещение 4.5', sq: '61.89 м²' },
+        { name: 'Помещение 4.6', sq: '271.61 м²' },
+        { name: 'Остров 4.7', sq: '32.73 м²' },
+        { name: 'Остров 4.8', sq: '28.72 м²' },
       ]
     },
     5: {
       name: '5 этаж — Фудкорт',
       totalArea: '1 022 м²',
       spaces: [
-        { name: 'Зона фудкорта 55', sq: '727.41 м²' },
-        { name: 'Доготовочная 51', sq: '93.86 м²' },
-        { name: 'Доготовочная 52', sq: '41.61 м²' },
-        { name: 'Доготовочная 53', sq: '53.76 м²' },
-        { name: 'Доготовочная 54', sq: '105.44 м²' },
+        { name: 'Зона фудкорта 5.5', sq: '727.41 м²' },
+        { name: 'Доготовочная 5.1', sq: '93.86 м²' },
+        { name: 'Доготовочная 5.2', sq: '41.61 м²' },
+        { name: 'Доготовочная 5.3', sq: '53.76 м²' },
+        { name: 'Доготовочная 5.4', sq: '105.44 м²' },
       ]
     },
     6: {
       name: '6 этаж — Развлечения',
-      totalArea: '529.93 м²',
+      totalArea: '~550 м²',
       spaces: [
         { name: 'Помещение 6.1', sq: '529.93 м²' },
-        { name: 'Второй свет фудкорта', sq: 'открытая планировка' },
+        { name: '', sq: 'открытая планировка' },
       ]
     }
   };
@@ -249,7 +249,7 @@ function initYandexMap() {
   if (!mapEl || typeof ymaps === 'undefined') return;
   ymaps.ready(function() {
     // Точные координаты: ул. Космонавтов, 10А, Витебск
-    const coords = [55.18635, 30.21195];
+    const coords = [55.195740, 30.187589];
 
     const map = new ymaps.Map('yandexMap', {
       center: coords,
@@ -278,6 +278,7 @@ function initYandexMap() {
 }
 if (typeof ymaps !== 'undefined') initYandexMap();
 else { window.initYandexMap = initYandexMap; setTimeout(() => { if (typeof ymaps !== 'undefined') initYandexMap(); }, 2000); }
+
 
 /* ======= FORM ======= */
 (function() {
@@ -397,11 +398,14 @@ else { window.initYandexMap = initYandexMap; setTimeout(() => { if (typeof ymaps
     };
 
     try {
+      const formData = new FormData();
+      Object.keys(data).forEach(key => formData.append(key, data[key]));
+
       await fetch(APPS_SCRIPT_URL, {
-        method: 'POST', mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+});
 
       // Скрываем сразу, без анимации — чтобы секция сразу пересчитала высоту
       if (appHeader) {

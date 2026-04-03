@@ -136,10 +136,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
 }
 .header.scrolled {
-  background: rgba(10,10,10,0.78);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(10, 10, 10, 0.712);
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 
 .header-inner {
@@ -166,7 +164,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1;
 }
 
-.header-nav { display: flex; gap: 28px; margin-left: auto; }
+.header-nav { display: flex; gap: 28px; margin-left: auto;}
 .nav-link {
   font-size: 13px; font-weight: 400; letter-spacing: 0.03em;
   color: var(--text-2); transition: color 0.2s; position: relative;
@@ -200,11 +198,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .mobile-nav {
   display: none; flex-direction: column;
   position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0;
-  background: rgba(10,10,10,0.97); backdrop-filter: blur(20px);
-  padding: 40px; gap: 8px; z-index: 999;
+  background: rgba(10, 10, 10, 0.664); backdrop-filter: blur(20px);
+  padding: 40px; gap: 8px; z-index: 9999;
   opacity: 0; pointer-events: none; transition: opacity 0.3s;
 }
-.mobile-nav.open { opacity: 1; pointer-events: all; }
+.mobile-nav.open {opacity: 1; pointer-events: all; }
 .mobile-nav-link {
   font-size: 22px; font-family: var(--font-serif); font-weight: 400;
   color: var(--text-2); padding: 12px 0; border-bottom: 1px solid var(--border);
@@ -229,8 +227,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to bottom,
-    rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.3) 40%,
-    rgba(10,10,10,0.55) 70%, rgba(10,10,10,0.82) 100%);
+    rgba(10, 10, 10, 0.651) 0%, rgba(10, 10, 10, 0.603) 40%,
+    rgba(10, 10, 10, 0.61) 70%, rgba(10, 10, 10, 0.904) 100%);
   z-index: 1;
 }
 .hero-status {
@@ -421,13 +419,37 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* v4: тёмный фон под фото, контейнер по высоте фото без полос */
 .floor-plan-wrap {
-  background: #2d2d2d;
-  border: 1px solid var(--border); border-radius: 2px;
   overflow: hidden;
   /* Нет aspect-ratio — контейнер тянется по реальной высоте изображения */
   position: relative; cursor: zoom-in;
   display: flex; align-items: center; justify-content: center;
   line-height: 0;
+  -webkit-mask-image:
+    linear-gradient(to right,
+      transparent 0%,
+      black 15%,
+      black 85%,
+      transparent 100%),
+    linear-gradient(to bottom,
+      transparent 0%,
+      black 8%,
+      black 95%,
+      transparent 100%);
+  mask-image:
+    linear-gradient(to right,
+      transparent 0%,
+      black 20%,
+      black 80%,
+      transparent 100%),
+    linear-gradient(to bottom,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%);
+
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+
 }
 .floor-plan-wrap img {
   /* Картинка занимает всю ширину, высота — естественная (без сжатия/растяжения) */
@@ -440,7 +462,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* Подсказка "Раскрыть" */
 .floor-zoom-hint {
-  position: absolute; bottom: 10px; right: 12px;
+  position: absolute; bottom: 40px; right: 152px;
   font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
   color: rgba(196,168,130,0.7);
   background: rgba(10,10,10,0.6);
@@ -457,6 +479,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .floor-details {
   background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 22px;
 }
+.floor-button {
+  display: flex; flex-direction: column; gap: 14px;
+  position: sticky; top: calc(var(--header-h) + 24px);
+}
 .floor-details h4 {
   font-family: var(--font-serif); font-size: 18px; font-weight: 500; margin-bottom: 14px; color: var(--text-h);
 }
@@ -468,10 +494,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .floor-space-sq { color: var(--text-h); font-weight: 500; }
 
 .btn-floor-cta {
-  display: block; text-align: center; padding: 13px 22px;
-  background: var(--accent); color: #0a0a0a;
-  font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-  border-radius: var(--radius); transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  padding: 13px 22px;
+  background: var(--accent);
+  color: #0a0a0a;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+
+  border-radius: var(--radius);
+  transition: background 0.2s;
+  min-height: 48px;
 }
 .btn-floor-cta:hover { background: #d4b892; }
 .btn-floor-pdf {
@@ -596,9 +637,33 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .req { color: var(--accent); }
 
 .form-field input, .form-field select, .form-field textarea {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 12px 15px; font-family: var(--font-sans); font-size: 14px;
-  color: var(--text); outline: none; transition: border-color 0.2s; width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 15px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.form-field input:-webkit-autofill,
+.form-field input:-webkit-autofill:hover,
+.form-field input:-webkit-autofill:focus,
+.form-field textarea:-webkit-autofill,
+.form-field textarea:-webkit-autofill:hover,
+.form-field textarea:-webkit-autofill:focus,
+.form-field select:-webkit-autofill,
+.form-field select:-webkit-autofill:hover,
+.form-field select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--surface) inset !important;
+  box-shadow: 0 0 0 1000px var(--surface) inset !important;
+  -webkit-text-fill-color: var(--text) !important;
+  caret-color: var(--text);
+  border: 1px solid var(--border) !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 .form-field input::placeholder, .form-field textarea::placeholder { color: var(--text-3); }
 .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--accent-dim); }
@@ -671,8 +736,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ----- CONTACTS ----- */
 .contacts { background: var(--bg); }
 .contacts-inner {
-  max-width: 1320px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start;
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 64px;
+  align-items: start;
 }
 .contact-block { margin-bottom: 36px; }
 .contact-item {
@@ -698,16 +767,39 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .social-icon:hover { color: var(--accent); border-color: var(--accent-dim); background: var(--accent-bg); }
 .social-icon svg { width: 17px; height: 17px; }
 
-/* Карта: CSS filter затемнение в половину от v3 (было invert 0.85, теперь 0.42) */
-.yandex-map {
-  width: 100%; aspect-ratio: 4/3; border-radius: 2px; overflow: hidden;
-  border: 1px solid var(--border); background: var(--surface); min-height: 420px;
-  /* v3 было: invert(0.85) hue-rotate(175deg) saturate(0.4) brightness(0.7) */
-  /* v4 — половина интенсивности: */
-  filter: invert(0.42) hue-rotate(175deg) saturate(0.6) brightness(0.85);
+.contacts-map {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
+/* только карта в рамке */
+.yandex-map {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 3%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* затемнение ТОЛЬКО над картой */
+.yandex-map::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.459);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* кнопки под картой — вне оверлея */
 .map-nav-btns {
+  position: relative;
+  z-index: 2; /* на всякий случай выше карты+оверлея */
   display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap;
 }
 .map-nav-btn {
@@ -718,7 +810,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--text-2); transition: border-color 0.2s, color 0.2s, background 0.2s;
   text-decoration: none;
 }
-.map-nav-btn svg { flex-shrink: 0; stroke: var(--accent-dim); transition: stroke 0.2s; }
+.map-nav-btn svg { flex-shrink: 0; stroke: var(--accent-dim); transition: stroke 0.2s;}
 /* v4: hover — всегда цвет акцента (одинаково для Яндекс и Google) */
 .map-nav-btn:hover { border-color: var(--accent); color: var(--accent); }
 .map-nav-btn:hover svg { stroke: var(--accent); }
@@ -793,7 +885,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .floor-viewer { grid-template-columns: 1fr; }
   .floor-info { position: static; flex-direction: row; flex-wrap: wrap; gap: 14px; }
   .floor-details { flex: 1 1 280px; }
-  .btn-floor-cta, .btn-floor-pdf { flex: 1 1 160px; text-align: center; }
+  .btn-floor-cta, .btn-floor-pdf { flex: 1 1 60px; text-align: center; justify-content: center;}
   .map-nav-btns { flex-direction: row; }
 
   /* Triggers v4: при 1100px → 3 колонки + 4-я карточка центрирована */
@@ -891,7 +983,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
   /* Планы этажей */
   .floor-tabs { gap: 0; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
-  .floor-tab { padding: 9px 14px; font-size: 12px; white-space: nowrap; flex-shrink: 0; }
+  .floor-tab { padding: 9px 6px; font-size: 12px; white-space: nowrap; flex-shrink: 0; }
   /* .floor-plan-wrap: автовысота по фото — aspect-ratio не нужен */
   .floor-info { flex-direction: column; }
   .btn-floor-cta, .btn-floor-pdf { width: 100%; text-align: center; justify-content: center; }
@@ -938,7 +1030,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .header-inner { padding: 0 14px; padding-top: 4px; }
   .header-logo-svg { width: 70px; }
   .hero-title { font-size: clamp(24px, 8vw, 38px); }
-  .floor-tab { padding: 8px 10px; font-size: 11px; }
+  .floor-tab { padding: 10px 3px; font-size: 11px; }
   .adv-item { padding: 24px 18px; }
   .map-nav-btn { font-size: 10.5px; padding: 9px 12px; }
 }

@@ -187,10 +187,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .btn-header:hover { background: var(--accent); color: #0a0a0a; }
 
 .burger {
-  display: none; flex-direction: column; gap: 5px;
-  width: 28px; margin-left: auto; padding: 4px;
+  display: none; flex-direction: column; gap: 6px;
+  width: 32px; height: 32px; margin-left: auto; padding: 5px;
+  justify-content: center;
 }
-.burger span { display: block; height: 1.5px; background: var(--text); transition: transform 0.3s, opacity 0.3s; }
+.burger span { display: block; height: 2px; background: var(--text); transition: transform 0.3s, opacity 0.3s; border-radius: 2px;}
 .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
